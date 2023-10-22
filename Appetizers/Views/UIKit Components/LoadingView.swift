@@ -2,17 +2,33 @@
 //  LoadingView.swift
 //  Appetizers
 //
-//  Created by Sunpreet Kaur on 22/10/2023.
+//  Created by Sunpreet Kaur on 21/10/2023.
 //
 
 import SwiftUI
 
-struct LoadingView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct ActivityIndicator: UIViewRepresentable {
+    
+    func makeUIView(context: Context) -> UIActivityIndicatorView {
+        let activityIndicatorView = UIActivityIndicatorView(style: .large)
+        activityIndicatorView.color = UIColor.brandPrimary
+        activityIndicatorView.startAnimating()
+        return activityIndicatorView
     }
+    
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) {}
 }
 
-#Preview {
-    LoadingView()
+
+struct LoadingView: View {
+    var body: some View {
+        ZStack {
+            Color(.systemBackground)
+                .ignoresSafeArea()
+            
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint: .brandPrimary))
+                .scaleEffect(2)
+        }
+    }
 }

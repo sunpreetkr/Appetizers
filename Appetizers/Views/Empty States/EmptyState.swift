@@ -2,17 +2,39 @@
 //  EmptyState.swift
 //  Appetizers
 //
-//  Created by Sunpreet Kaur on 22/10/2023.
+//  Created by Sunpreet Kaur on 20/10/2023.
 //
 
 import SwiftUI
 
 struct EmptyState: View {
+    
+    let imageName: String
+    let message: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(.systemBackground)
+                .ignoresSafeArea()
+            
+            VStack {
+                Image(imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 150)
+                
+                Text(message)
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.secondary)
+                    .padding()
+            }
+            .offset(y: -50)
+        }
     }
 }
 
 #Preview {
-    EmptyState()
+    EmptyState(imageName: "empty-order", message: "This is our test message.\nI'm making it a little long for testing.")
 }

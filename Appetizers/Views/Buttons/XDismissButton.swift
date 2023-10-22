@@ -2,14 +2,24 @@
 //  XDismissButton.swift
 //  Appetizers
 //
-//  Created by Sunpreet Kaur on 22/10/2023.
+//  Created by Sunpreet Kaur on 20/10/2023.
 //
 
 import SwiftUI
 
 struct XDismissButton: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Circle()
+                .frame(width: 30, height: 30)
+                .foregroundColor(.white)
+                .opacity(0.6)
+            
+            Image(systemName: "xmark")
+                .imageScale(.small)
+                .frame(width: 44, height: 44)
+                .foregroundColor(.black)
+        }
     }
 }
 
